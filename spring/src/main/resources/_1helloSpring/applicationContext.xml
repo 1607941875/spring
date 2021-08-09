@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+spring 配置文件
+1.beans :是根标签，spring把java对象称为bean
+2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring就完成 _1helloSpring helloSpring = new _1helloSpring();
+        spring把创建好的对象放入map中，springMap.put(id的值,对象);
+    -->
+    <bean id="_1helloSpring" class="com.yyc.service.impl._1helloSpringImpl"/>
+
+
+    <!--非自定义对象-->
+    <bean id="myDate" class="java.util.Date"/>
+</beans>
