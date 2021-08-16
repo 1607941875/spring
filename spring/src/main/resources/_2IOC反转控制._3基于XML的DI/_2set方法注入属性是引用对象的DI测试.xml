@@ -5,8 +5,8 @@ spring 配置文件
 2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--
         spring把创建好的对象放入map中，springMap.put(id的值,对象);
@@ -24,19 +24,31 @@ spring 配置文件
            </bean>
    -->
     <bean id="Student" class="com.yyc.entity.Student">
-        <property name="name" value="李白"/><!--setName("李白")-->
+        <property name="name" value="孙悟空"/><!--setName("李白")-->
         <!--值 必须放在""中，这是xml的规则，框架帮我们判断了类型并赋值 -->
         <property name="age" value="21"/><!--setAge(21)-->
 
         <property name="email" value=""/>
     </bean>
+    <bean id="Student01" class="com.yyc.entity.Student">
+        <property name="name" value="猪八戒"/>
+        <property name="age" value="22"/>
+        <property name="email" value="222@gmail.com"/>
+    </bean>
 
-    <!--非自定义对象——————————-->
-<bean id="Animal" class="com.yyc.entity.Animal">
+    <!--2)引用类型的属性注入-->
+    <bean id="Animal" class="com.yyc.entity.Animal">
+        <property name="name" value="🐶"/>
+        <property name="color" value="🌈"/>
+        <property name="student" ref="Student"/>
 
-    <property name="name" value="🐶"/>
-    <property name="color" value="🌈"/>
-    <property name="student" ref="Student"/>
-</bean>
+    </bean>
+
+    <bean id="Animal01" class="com.yyc.entity.Animal">
+        <property name="name" value="🐱"/>
+        <property name="color" value="⚪️"/>
+        <property name="student" ref="Student01"/>
+        <property name="animal" ref="Animal"/>
+    </bean>
 
 </beans>

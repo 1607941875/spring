@@ -4,19 +4,10 @@ public class Animal {
     private String name;
     private String color;
     private Student student;
+    private Animal animal;
 
     public Animal() {
-        System.out.println("执行Animal构造方法");
-    }
-
-    public Animal(String name, String color, Student student) {
-        this.name = name;
-        this.color = color;
-        this.student = student;
-    }
-
-    public String getName() {
-        return name;
+        System.out.println("执行Animal空参数构造方法");
     }
 
     public void setName(String name) {
@@ -24,22 +15,19 @@ public class Animal {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
     public void setColor(String color) {
         System.out.println("=======Animal 执行setColor"+color);
         this.color = color;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
     public void setStudent(Student student) {
         System.out.println("=======Animal 执行setName"+student.toString());
         this.student = student;
+    }
+
+    public void setAnimal(Animal animal) {
+        System.out.println("=======Animal 执行setAnimal"+animal.toString());
+        this.animal = animal;
     }
 
     @Override
@@ -48,6 +36,7 @@ public class Animal {
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", student=" + student +
+                ", animal='" + animal + '\'' +
                 '}';
     }
 }

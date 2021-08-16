@@ -6,24 +6,18 @@ public class Student {
 
 
     public Student() {
-        System.out.println("执行Student的构造方法");
+        System.out.println("执行Student的空参数构造方法");
     }
 
-    public String getName() {
-        return name;
-    }
 
     public void setName(String name) {
-        System.out.println("=======Student 执行setName"+name);
+        System.out.println("=======Student 执行setName" + name);
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
 
     public void setAge(int age) {
-        System.out.println("=======Student 执行age"+age);
+        System.out.println("=======Student 执行age" + age);
         this.age = age;
     }
 

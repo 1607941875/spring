@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+spring 配置文件
+1.beans :是根标签，spring把java对象称为bean
+2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        spring把创建好的对象放入map中，springMap.put(id的值,对象);
+    -->
+    <!--构造注入:spring调用类有参数构造方法，在创建对象的同时，在构造方法中给属性赋值。
+         构造注入使用<constructor-arg>标签
+         <constructor-arg>标签：一个<constructor-arg>表示构造方法一个参数
+         <constructor-arg>标签属性：
+         name:表示构造方法的参数名
+         index:表示构造方法参数的位置，参数从左往右位置是0,1,2的顺序
+         value:构造方法的形参类型是简单类型的，使用value
+         ref:构造方法的形参类型是引用类型的，使用ref
+    -->
+    <bean id="File自定义类型" class="java.io.File">
+        <constructor-arg name="parent" index="0" value="/Users/yyc/Documents/idea-workspace/spring/spring/src/test/java/com/yyc/_2IOC反转控制/_3基于XML的DI/_4File文件"/>
+        <constructor-arg name="child" index="1" value="iu1.png"/>
+    </bean>
+
+
+
+</beans>
