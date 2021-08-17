@@ -1,8 +1,8 @@
 package com.yyc.entity;
 
 public class Car {
-private String brand;
-private String type;
+    private String brand;
+    private String type;
 
     public Car() {
         System.out.println("=========执行Car的空参数构造方法");
@@ -20,5 +20,16 @@ private String type;
                 "brand='" + brand + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+        System.out.println("=========执行Car的setBrand方法");
+    }
+
+    public void setType(String type) {
+        this.type = type;
+        System.out.println("=========执行Car的type方法");
     }
 }

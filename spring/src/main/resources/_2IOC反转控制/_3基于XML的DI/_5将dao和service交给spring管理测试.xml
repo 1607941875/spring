@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+spring 配置文件
+1.beans :是根标签，spring把java对象称为bean
+2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        spring把创建好的对象放入map中，springMap.put(id的值,对象);
+    -->
+    <bean id="studentDao" class="com.yyc.dao.impl.StudentDaoImpl" />
+    <bean id="studentDaoOracle" class="com.yyc.dao.impl.StudentDaoOracleImpl" />
+
+
+
+    <bean id="studentService" class="com.yyc.service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDaoOracle"></property>
+    </bean>
+
+</beans>

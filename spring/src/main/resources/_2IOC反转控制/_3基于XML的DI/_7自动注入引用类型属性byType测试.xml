@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+spring 配置文件
+1.beans :是根标签，spring把java对象称为bean
+2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        spring把创建好的对象放入map中，springMap.put(id的值,对象);
+    -->
+    <!--声明student对象
+       注入：就是赋值的意思
+       简单类型： spring中规定java的基本数据类型和String都是简单类型。
+       di:给属性赋值
+       1. set注入（设值注入） ：spring调用类的set方法， 你可以在set方法中完成属性赋值
+        1）简单类型的set注入
+           <bean id="xx" class="yyy">
+              <property name="属性名字" value="此属性的值"/>
+              一个property只能给一个属性赋值
+              <property....>
+           </bean>
+   -->
+    <bean id="car" class="com.yyc.entity.Car">
+        <property name="brand" value="🚘"/><!--setName("李白")-->
+        <!--值 必须放在""中，这是xml的规则，框架帮我们判断了类型并赋值 -->
+        <property name="type" value="❤️"/><!--setAge(21)-->
+    </bean>
+
+    <!--🌟🌟🌟🌟
+    引用类型的自动注入: spring框架根据某些规则自动给引用类型赋值。
+    使用的规则常用的是 byName, byType
+
+1.byName 按名称注入
+加了 autowire="byName",该对象下的 引用类型 就会自动匹配 已存在的bean的id，如果 id 和 set的后缀相同 就会自动赋值
+2.byType 按类型注入
+加了 autowire="byName",该对象下的 引用类型 就会自动匹配 已存在的bean的class,如果 class 属于一类 就会自动赋值
+同源关系(属于一类):父子关系，接口与实现类的关系
+
+    -->
+
+    <!--2)引用类型的属性注入-->
+    <bean id="person" class="com.yyc.entity.Person" autowire="byType">
+        <property name="name" value="⛹️"/>
+        <property name="age" value="18"/>
+    </bean>
+
+</beans>

@@ -5,8 +5,8 @@ spring 配置文件
 2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的。
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--
         spring把创建好的对象放入map中，springMap.put(id的值,对象);
@@ -23,32 +23,30 @@ spring 配置文件
               <property....>
            </bean>
    -->
-    <bean id="Student" class="com.yyc.entity.Student">
+    <bean id="student" class="com.yyc.entity.Student" >
         <property name="name" value="孙悟空"/><!--setName("李白")-->
         <!--值 必须放在""中，这是xml的规则，框架帮我们判断了类型并赋值 -->
         <property name="age" value="21"/><!--setAge(21)-->
 
         <property name="email" value=""/>
     </bean>
-    <bean id="Student01" class="com.yyc.entity.Student">
-        <property name="name" value="猪八戒"/>
-        <property name="age" value="22"/>
-        <property name="email" value="222@gmail.com"/>
-    </bean>
+
+<!--🌟🌟🌟🌟
+引用类型的自动注入: spring框架根据某些规则自动给引用类型赋值。
+使用的规则常用的是 byName, byType
+
+1.byName 按名称注入
+加了 autowire="byName",该对象下的 引用类型 就会自动匹配 已存在的bean的id，如果 id 和 set的后缀相同 就会自动赋值
+2.byType 按类型注入
+加了 autowire="byName",该对象下的 引用类型 就会自动匹配 已存在的bean的class,如果 class 属于一类 就会自动赋值
+同源关系(属于一类):父子关系，接口与实现类的关系
+-->
 
     <!--2)引用类型的属性注入-->
-    <bean id="Animal" class="com.yyc.entity.Animal">
+    <bean id="Animal" class="com.yyc.entity.Animal" autowire="byName">
         <property name="name" value="🐶"/>
         <property name="color" value="🌈"/>
-        <property name="student" ref="Student"/>
-
     </bean>
 
-    <bean id="Animal01" class="com.yyc.entity.Animal">
-        <property name="name" value="🐱"/>
-        <property name="color" value="⚪️"/>
-        <property name="student" ref="Student01"/>
-        <property name="animal" ref="Animal"/>
-    </bean>
 
 </beans>

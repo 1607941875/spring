@@ -5,17 +5,17 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.awt.*;
 import java.io.File;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
-
+/**
+ * 系统 自带类型
+ * */
 public class _4构造方法注入非自定义类型File测试 {
     @Test
     public void 构造方法注入非自定义类型测试(){
 
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("_2IOC反转控制._3基于XML的DI/_4构造方法注入非自定义类型File测试.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("_2IOC反转控制/_3基于XML的DI/_4构造方法注入非自定义类型File测试.xml");
         File 自定义file = (File) applicationContext.getBean("File自定义类型");
         System.out.println("不管--文件是否存在"+自定义file.exists());
         //相对路径的根目录是project的根文件夹
