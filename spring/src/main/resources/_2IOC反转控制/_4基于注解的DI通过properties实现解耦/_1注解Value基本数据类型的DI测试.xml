@@ -13,7 +13,8 @@
     1.加入一个新的约束文件spring-context.xsd
     2.给这个新的约束文件起个命名空间的名称
 -->
-    <context:component-scan base-package="com.yyc.entity" />
+    <context:component-scan base-package="com.yyc.entity._4基于注解的DI通过properties实现解耦" />
+    <context:property-placeholder location="classpath:_2IOC反转控制/_4基于注解的DI通过properties实现解耦/属性配置文件.properties" />
 
     <!--
       <bean id="myXueXiao" class="com.bjpowernode.ba03.School">
@@ -23,7 +24,7 @@
      -->
 
     <!--加载属性配置文件-->
-<!--    <context:property-placeholder location="classpath:test.properties" />-->
+    <!--    <context:property-placeholder location="classpath:test.properties" />-->
 
 
 </beans>

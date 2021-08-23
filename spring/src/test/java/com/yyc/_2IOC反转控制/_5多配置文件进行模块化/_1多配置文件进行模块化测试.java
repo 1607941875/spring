@@ -13,7 +13,6 @@ public class _1多配置文件进行模块化测试 {
         Person person = (Person) applicationContext.getBean("person");
         System.out.println(person.toString());
 
-
     }
 
 }

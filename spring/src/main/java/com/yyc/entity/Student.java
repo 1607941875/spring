@@ -6,7 +6,7 @@ public class Student {
 
 
     public Student() {
-        System.out.println("执行Student的空参数构造方法");
+        System.out.println("执行Student的无参数构造方法");
     }
 
 

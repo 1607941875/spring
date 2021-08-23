@@ -6,7 +6,8 @@ import com.yyc.service.StudentService;
 
 public class StudentServiceImpl implements StudentService {
 
-    private StudentDao studentDao = null;
+
+    private StudentDao studentDao ;
 
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;

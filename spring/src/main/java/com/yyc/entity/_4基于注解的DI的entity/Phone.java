@@ -1,4 +1,4 @@
-package com.yyc.entity;
+package com.yyc.entity._4基于注解的DI的entity;
 
 import org.springframework.stereotype.Component;
 
